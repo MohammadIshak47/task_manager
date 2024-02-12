@@ -1,0 +1,29 @@
+{% extends "tasks/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2>Login</h2>
+      <form method="POST" class="mt-4">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="id_username" class="form-label">Username</label>
+          {{ form.username }}
+        </div>
+        <div class="mb-3">
+          <label for="id_password" class="form-label">Password</label>
+          {{ form.password }}
+        </div>
+        {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+          Your username and password didn't match. Please try again.
+        </div>
+        {% endif %}
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}
