@@ -23,8 +23,10 @@ urlpatterns = [
    
     path("admin/", admin.site.urls),
     
-    # apps
+    # tasks apps URLS
     path("",include("tasks.urls")),
+    # api apps URLS
+    path("api/v1/",include("api.urls")),
     # user authentication
     path('accounts/', include('django.contrib.auth.urls')),
     
