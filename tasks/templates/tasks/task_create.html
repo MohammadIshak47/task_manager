@@ -3,15 +3,38 @@
 
 
 {% block content %}
-
-
-<h2>Add Task</h2>
-<form method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}  {# Render the form fields #}
-  <button type="submit" class="btn btn-primary">Task Add</button>
-</form>
-
+<div class="container" >
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Add Task</h2>
+      <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="id_title" class="form-label"><b>Title:</b></label>
+          {{ form.title }}
+        </div>
+        <label for="id_description" class="form-label"><b>Description:</b></label>
+        <div class="mb-3">
+          
+          {{ form.description }}
+        </div>
+        <div class="mb-3">
+          <label for="id_due_date" class="form-label"><b>Due Date:</b></label>
+          {{ form.due_date }}
+        </div>
+        <div class="mb-3">
+          <label for="id_priority" class="form-label"><b>Priority:</b></label>
+          {{ form.priority }}
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="id_is_complete" name="is_complete" {{ form.is_complete.value|yesno:"checked," }}>
+          <label class="form-check-label" for="id_is_complete"><b>Is Complete</b></label>
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+    </div>
+  </div>
+</div>
   
 
 {% endblock content %}
