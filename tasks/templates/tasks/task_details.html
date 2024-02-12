@@ -1,17 +1,35 @@
 {% extends "tasks/base.html" %}
 {% load static %}
 
-
 {% block content %}
-
-
-    <h1>{{ task_detail.title }}</h1>
-    <p>{{ task_detail.description }}</p>
-    <div class="task-actions">
-      <a href="{% url 'task-update' task_detail.pk %}"><i class="fas fa-pencil-alt"></i> Edit</a>
-      <a href="{% url 'task-delete' task_detail.pk %}"><i class="fas fa-trash-alt"></i> Delete</a>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>{{ task_detail.title }}</h1>
+            <p>{{ task_detail.description }}</p>
+            <ul class="list-unstyled">
+                <li><strong>User:</strong> {{ task_detail.user.username }}</li>
+                
+                <li><strong>Priority:</strong> {{ task_detail.get_priority_display }}</li>
+                <li><strong>Due Date:</strong> {{ task_detail.due_date }}</li>
+                <li><strong>Created At:</strong> {{ task_detail.created_at }}</li>
+                <li><strong>Updated At:</strong> {{ task_detail.updated_at }}</li>
+               
+            </ul>
+            <div class="task-actions">
+                <a href="{% url 'task-update' task_detail.pk %}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Edit</a>
+                <a href="{% url 'task-delete' task_detail.pk %}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="task-photos">
+                {% for photo in task_detail.photos.all %}
+                <img src="{{ photo.photo.url }}" alt="Photo for {{ task_detail.title }}" class="img-fluid">
+                <br>
+                <br>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-
-  
-
+</div>
 {% endblock content %}

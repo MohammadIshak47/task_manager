@@ -43,7 +43,7 @@
         <button type="submit" class="btn btn-primary">Apply Filter</button>
     </form>
 
-    <a href="#!" style="color: #23af89;" data-mdb-toggle="tooltip" title="Ascending"><i class="fas fa-sort-amount-down-alt ms-2"></i></a>
+   
 </div>
 
 {% for task in tasks %}
@@ -54,10 +54,8 @@
         </div>
     </li>
     <li class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent">
-        
-        <img src="{{ task__taskphoto.photo }}" alt=""  class="lead fw-normal mb-0">
-        <p class="lead fw-normal mb-0">{{ task.title }}</p>
-        
+        <p class="lead fw-normal mb-0">{{ task.title }} </p>
+        <a href="#" class="text-primary" data-mdb-toggle="tooltip" title="Delete todo"> {{task.priority}}<i ></i></a>
     </li>
     <li class="list-group-item px-3 py-1 d-flex align-items-center border-0 bg-transparent">
         <div class="py-2 px-3 me-2 border border-warning rounded-3 d-flex align-items-center bg-light">
@@ -65,20 +63,25 @@
                 <a href="{% url 'task-detail' task.id %}" data-mdb-toggle="tooltip" title="Due on date">
                     <i class="fas fa-hourglass-half me-2 text-warning"></i>
                 </a>
-                {{ task.due_date }}
+               <p ><b>Created at:</b> {{ task.created_at }}<br></p> 
+                <p><b>Due at:</b> {{ task.due_date }} </p>
             </p>
         </div>
     </li>
     <li class="list-group-item ps-3 pe-0 py-1 rounded-0 border-0 bg-transparent">
-        <div class="d-flex flex-row justify-content-end mb-1">
-            <a href="{% url 'task-detail' task.id %}" class="text-info" data-mdb-toggle="tooltip" title="Detail todo"><i class="fas fa-detail-alt me-3">Detail</i></a>
-            <a href="{% url 'task-update' task.id %}" class="text-info" data-mdb-toggle="tooltip" title="Edit todo"><i class="fas fa-pencil-alt me-3"></i></a>
-            <a href="{% url 'task-delete' task.id %}" class="text-danger" data-mdb-toggle="tooltip" title="Delete todo"><i class="fas fa-trash-alt"></i></a>
+        <div class="d-flex flex-row justify-content-between mb-1">
+           
+            <div>
+                     
+                <a href="{% url 'task-detail' task.id %}" class="text-info" data-mdb-toggle="tooltip" title="Detail todo"><i class="fas fa-detail-alt me-3">Detail</i></a>
+                <a href="{% url 'task-update' task.id %}" class="text-info" data-mdb-toggle="tooltip" title="Edit todo"><i class="fas fa-pencil-alt me-3"></i></a>
+                <a href="{% url 'task-delete' task.id %}" class="text-danger" data-mdb-toggle="tooltip" title="Delete todo"><i class="fas fa-trash-alt"></i></a>
+              
+                
+            </div>
         </div>
         <div class="text-end text-muted">
-            <a href="#!" class="text-muted" data-mdb-toggle="tooltip" title="Created date">
-                <p class="small mb-0"><i class="fas fa-info-circle me-2"></i> {{ task.created_date }}</p>
-            </a>
+            
         </div>
     </li>
 </ul>
