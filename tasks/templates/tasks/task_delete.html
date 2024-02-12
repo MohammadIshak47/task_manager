@@ -3,7 +3,7 @@
 
 
 {% block content %}
-<h2>Are You Sure You Want to Delete Your "{{task-delete.title }} Task"?</h2>
+<h2>Are You Sure You Want to Delete Your "{{task_delete.title }} Task"?</h2>
   <form method="POST">
     {% csrf_token %}
     <button type="submit" class="btn btn-danger">Delete</button>
