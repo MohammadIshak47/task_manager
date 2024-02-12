@@ -1,6 +1,8 @@
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .models import Task
+from tasks.models import Task
+from tasks.forms import TaskCreateForm
+
 
 class TaskListView(ListView):
     model = Task
@@ -10,8 +12,8 @@ class TaskListView(ListView):
 
 class TaskCreateView(CreateView):
     model = Task
+    form_class = TaskCreateForm
     template_name = 'tasks/task_create.html'
-    fields = ['title', 'description', 'due_date', 'priority']
 
     def form_valid(self, form):
         form.instance.user = self.request.user
