@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from tasks.models import Task
 from tasks.forms import TaskCreateForm,TaskUpdateForm,NewUserForm
 from django.db.models import Q
-from django.contrib.auth import login
+from django.contrib.auth import login,logout
 
 class TaskListView(ListView):
     model = Task
@@ -87,5 +87,8 @@ def signup(request):
     
     return render(request,'registration/signup.html',{'form':form})
 
+def logout_view(request):
+    logout(request)
+    return redirect('/')  # Redirect to the login page after logout
 
 

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from environs import Env 
+
 env = Env()             # New line
 env.read_env()          # New line
 
@@ -24,10 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-9b!nnt1s6q@=c(#_pjn_x*hwk7i4#4dd$7pncgd$btv=@hqtx3"
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+SECRET_KEY = env('SECRET_KEY')
+
+# Get DEBUG value from .env file or default to False
+DEBUG = env.bool('DEBUG', default=False)
 
 ALLOWED_HOSTS = []
 
@@ -87,11 +89,11 @@ WSGI_APPLICATION = "task_manager.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "newdb", # database name
-        "USER": "ishak", # database user name
-        "PASSWORD": "Hello4747", # password for 'newdb' database
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
+        "NAME": env("DB_NAME"),
+        "USER": env("DB_USER"),
+        "PASSWORD": env("DB_PASSWORD"),
+        "HOST": env("DB_HOST"),
+        "PORT": env("DB_PORT"),
     }
 }
 
@@ -130,15 +132,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+#static file setup
 STATIC_URL = "static/"
 STATICFILES_DIRS=[os.path.join(BASE_DIR,'static'),]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# media files setup
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
-
+#Django Built-in Authtication Redirect setup 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = 'logout'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
