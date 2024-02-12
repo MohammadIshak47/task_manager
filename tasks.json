@@ -1,0 +1,254 @@
+[
+{
+  "model": "tasks.task",
+  "pk": 5,
+  "fields": {
+    "user": 1,
+    "title": "Deployment and Maintenance",
+    "description": "Prepare the application for deployment to a production environment.\r\nSet up continuous integration and continuous deployment (CI/CD) pipelines.\r\nMonitor application performance and user feedback, and make necessary updates and improvements over time.",
+    "due_date": "2024-03-27T00:00:00Z",
+    "priority": "medium",
+    "is_complete": true,
+    "created_at": "2024-02-12T13:34:07.149Z",
+    "updated_at": "2024-02-12T16:11:24.184Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 6,
+  "fields": {
+    "user": 1,
+    "title": "Create Django Project",
+    "description": "Use Django's command-line tool to create a new project.\r\nDefine project settings (e.g., database configuration, static files, templates).\r\nCreate the main application within the project.",
+    "due_date": "2024-02-11T21:38:00Z",
+    "priority": "low",
+    "is_complete": false,
+    "created_at": "2024-02-12T15:38:16.754Z",
+    "updated_at": "2024-02-12T15:38:16.754Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 7,
+  "fields": {
+    "user": 5,
+    "title": "Design Database Models",
+    "description": "Define the database models for the application (e.g., User, Todo).\r\nSpecify fields and relationships for each model.\r\nConsider necessary validations and constraints.",
+    "due_date": "2024-02-12T00:00:00Z",
+    "priority": "low",
+    "is_complete": true,
+    "created_at": "2024-02-12T15:44:39.672Z",
+    "updated_at": "2024-02-12T15:44:39.672Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 8,
+  "fields": {
+    "user": 5,
+    "title": "Implement Todo CRUD Functionality",
+    "description": "Create views and URLs for listing, creating, updating, and deleting todo items.\r\nImplement corresponding HTML templates for displaying todo items and forms.\r\nHandle form submissions and database interactions in views.",
+    "due_date": "2024-02-06T15:45:10Z",
+    "priority": "medium",
+    "is_complete": false,
+    "created_at": "2024-02-12T15:45:25.137Z",
+    "updated_at": "2024-02-12T15:45:25.137Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 9,
+  "fields": {
+    "user": 5,
+    "title": "Integrate React Frontend",
+    "description": "Set up a new React application within the Django project.\r\nDesign and develop React components for the ToDo application's frontend.\r\nUse Axios or similar libraries to make requests to Django backend API endpoints.",
+    "due_date": "2024-02-15T15:45:55Z",
+    "priority": "low",
+    "is_complete": true,
+    "created_at": "2024-02-12T15:48:01.307Z",
+    "updated_at": "2024-02-12T15:48:01.307Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 10,
+  "fields": {
+    "user": 3,
+    "title": "Connect Django Backend with React Frontend",
+    "description": "Configure Django to serve the React frontend as a static asset.\r\nIntegrate React components within Django templates.\r\nEnsure proper data flow between the frontend and backend.",
+    "due_date": "2024-02-04T15:48:52Z",
+    "priority": "low",
+    "is_complete": true,
+    "created_at": "2024-02-12T15:49:03.433Z",
+    "updated_at": "2024-02-12T15:49:03.433Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 11,
+  "fields": {
+    "user": 3,
+    "title": "Test and Debug",
+    "description": "Test the application to ensure all functionalities work as expected.\r\nDebug any issues encountered during testing.\r\nUse browser developer tools and Django debugging tools for troubleshooting.",
+    "due_date": "2024-02-01T12:00:00Z",
+    "priority": "medium",
+    "is_complete": true,
+    "created_at": "2024-02-12T15:49:42.611Z",
+    "updated_at": "2024-02-12T15:49:42.611Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 12,
+  "fields": {
+    "user": 3,
+    "title": "Deployment",
+    "description": "Deploy the Django backend and React frontend separately to a hosting platform (e.g., Heroku, AWS).\r\nConfigure environment variables and settings for production deployment.\r\nVerify the deployed application works correctly in the production environment.",
+    "due_date": "2024-02-23T15:50:17Z",
+    "priority": "high",
+    "is_complete": false,
+    "created_at": "2024-02-12T15:50:30.710Z",
+    "updated_at": "2024-02-12T15:50:30.710Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 13,
+  "fields": {
+    "user": 4,
+    "title": "User Authentication",
+    "description": "Implement user authentication system using Django's built-in authentication framework.\r\nAllow users to sign up, log in, log out, and reset passwords.\r\nImplement access control to restrict certain functionalities to authenticated users only.",
+    "due_date": "2024-02-01T06:00:00Z",
+    "priority": "medium",
+    "is_complete": true,
+    "created_at": "2024-02-12T15:57:02.025Z",
+    "updated_at": "2024-02-12T15:57:02.025Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 14,
+  "fields": {
+    "user": 4,
+    "title": "Todo List Display",
+    "description": "Design and develop the user interface for displaying todo items.\r\nImplement pagination or infinite scrolling for large todo lists.\r\nAllow users to filter and sort todo items based on different criteria (e.g., status, priority).",
+    "due_date": "2024-02-02T12:00:00Z",
+    "priority": "high",
+    "is_complete": false,
+    "created_at": "2024-02-12T15:57:40.611Z",
+    "updated_at": "2024-02-12T15:57:40.611Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 15,
+  "fields": {
+    "user": 1,
+    "title": "Todo Item Creation",
+    "description": "Implement a form for users to create new todo items.\r\nValidate user input and handle form submission errors gracefully.\r\nAssign default values for fields like due date and priority if not specified by the user.",
+    "due_date": "2024-02-10T18:00:00Z",
+    "priority": "low",
+    "is_complete": true,
+    "created_at": "2024-02-12T15:58:23.135Z",
+    "updated_at": "2024-02-12T15:58:23.135Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 16,
+  "fields": {
+    "user": 1,
+    "title": "Todo Item Editing and Updating",
+    "description": "Allow users to edit and update existing todo items.\r\nImplement form pre-population with current todo item details.\r\nHandle validation errors and update the database accordingly.",
+    "due_date": "2024-02-01T18:00:00Z",
+    "priority": "medium",
+    "is_complete": true,
+    "created_at": "2024-02-12T15:58:57.151Z",
+    "updated_at": "2024-02-12T15:58:57.151Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 17,
+  "fields": {
+    "user": 1,
+    "title": "Todo Item Deletion",
+    "description": "Implement functionality for users to delete todo items.\r\nConfirm user intent before permanently deleting items.\r\nHandle database cleanup and cascading deletion of related records (if any).",
+    "due_date": "2024-02-04T00:00:00Z",
+    "priority": "high",
+    "is_complete": false,
+    "created_at": "2024-02-12T15:59:34.887Z",
+    "updated_at": "2024-02-12T15:59:34.887Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 18,
+  "fields": {
+    "user": 2,
+    "title": "User Profile and Preferences",
+    "description": "Allow users to view and update their profile information.\r\nImplement settings for customizing the appearance and behavior of the application.\r\nStore user preferences in the database and apply them across sessions.",
+    "due_date": "2024-02-15T16:00:37Z",
+    "priority": "low",
+    "is_complete": true,
+    "created_at": "2024-02-12T16:00:54.186Z",
+    "updated_at": "2024-02-12T16:00:54.186Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 19,
+  "fields": {
+    "user": 2,
+    "title": "Testing and Quality Assurance",
+    "description": "Write unit tests for critical components and functionalities.\r\nPerform integration testing to ensure different parts of the application work together seamlessly.\r\nConduct user acceptance testing (UAT) with real users to gather feedback and identify potential issues.",
+    "due_date": "2024-02-01T12:00:00Z",
+    "priority": "medium",
+    "is_complete": false,
+    "created_at": "2024-02-12T16:01:33.131Z",
+    "updated_at": "2024-02-12T16:01:33.131Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 20,
+  "fields": {
+    "user": 2,
+    "title": "Documentation",
+    "description": "Write comprehensive documentation for setting up and using the application.\r\nDocument the codebase, including comments and docstrings for functions and classes.\r\nCreate user guides and tutorials to help users get started with the application.",
+    "due_date": "2024-02-12T16:02:00Z",
+    "priority": "high",
+    "is_complete": true,
+    "created_at": "2024-02-12T16:02:19.514Z",
+    "updated_at": "2024-02-12T16:02:19.514Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 21,
+  "fields": {
+    "user": 1,
+    "title": "Tagging and Categorization",
+    "description": "Implement tagging functionality for todo items to allow users to categorize tasks.\r\nAllow users to assign multiple tags to each todo item.\r\nProvide autocomplete suggestions for tags based on existing tags in the system.",
+    "due_date": "2024-02-05T16:12:47Z",
+    "priority": "high",
+    "is_complete": true,
+    "created_at": "2024-02-12T16:13:01.633Z",
+    "updated_at": "2024-02-12T16:13:01.633Z"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 22,
+  "fields": {
+    "user": 1,
+    "title": "Deadline Reminders",
+    "description": "Implement reminders for upcoming deadlines and overdue tasks.\r\nNotify users via email or in-app notifications about approaching deadlines.\r\nAllow users to customize notification preferences and frequency.",
+    "due_date": "2024-02-01T16:13:25Z",
+    "priority": "low",
+    "is_complete": false,
+    "created_at": "2024-02-12T16:13:39.974Z",
+    "updated_at": "2024-02-12T16:13:39.974Z"
+  }
+}
+]
