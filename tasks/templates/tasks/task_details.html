@@ -1,0 +1,17 @@
+{% extends "tasks/base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+
+    <h1>{{ task-detail.title }}</h1>
+    <p>{{ task-detail.description }}</p>
+    <div class="task-actions">
+      <a href="{% url 'task-update' task-detail.pk %}"><i class="fas fa-pencil-alt"></i> Edit</a>
+      <a href="{% url 'task-delete' task-detail.pk %}"><i class="fas fa-trash-alt"></i> Delete</a>
+    </div>
+
+  
+
+{% endblock content %}

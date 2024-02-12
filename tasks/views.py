@@ -14,7 +14,8 @@ class TaskCreateView(CreateView):
     model = Task
     form_class = TaskCreateForm
     template_name = 'tasks/task_create.html'
-
+    success_url = reverse_lazy('task-list')
+    
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
@@ -22,6 +23,7 @@ class TaskCreateView(CreateView):
 class TaskDetailView(DetailView):
     model = Task
     template_name = 'tasks/task_details.html'
+    context_object_name = 'task-detail'
 
 class TaskUpdateView(UpdateView):
     model = Task
@@ -31,6 +33,7 @@ class TaskUpdateView(UpdateView):
 class TaskDeleteView(DeleteView):
     model = Task
     template_name = 'tasks/task_delete.html'
+    context_object_name = 'task-delete'
     success_url = reverse_lazy('task-list')
 
 

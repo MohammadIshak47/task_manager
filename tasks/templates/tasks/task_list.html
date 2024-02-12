@@ -64,7 +64,7 @@
                 <li class="list-group-item px-3 py-1 d-flex align-items-center border-0 bg-transparent">
                   <div class="py-2 px-3 me-2 border border-warning rounded-3 d-flex align-items-center bg-light">
                     <p class="small mb-0">
-                      <a href="{% url 'taskdetail' todo_list.id %}" data-mdb-toggle="tooltip" title="Due on date">
+                      <a href="{% url 'task-detail' task_list.id %}" data-mdb-toggle="tooltip" title="Due on date">
                         <i class="fas fa-hourglass-half me-2 text-warning"></i>
                       </a>
                       {{task_list.created_date}}

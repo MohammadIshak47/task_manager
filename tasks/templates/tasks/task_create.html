@@ -6,7 +6,7 @@
 
 
 <h2>Add Task</h2>
-<form method="post">
+<form method="POST">
   {% csrf_token %}
   {{ form.as_p }}  {# Render the form fields #}
   <button type="submit" class="btn btn-primary">Task Add</button>
