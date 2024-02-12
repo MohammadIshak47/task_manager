@@ -9,7 +9,7 @@
         <div class="card-body">
             <form method="GET" class="input-group" action="{% url 'task-list' %}">
                 <div class="input-group">
-                    <input type="text" name="search" class="form-control form-control-lg" placeholder="Search by task title.." aria-label="Search" value="{{ request.GET.search }}">
+                    <input type="text" name="search" class="form-control form-control-lg" placeholder="Search by Task Title.." aria-label="Search" value="{{ request.GET.search }}">
                     <button type="submit" class="btn btn-primary">Search</button>
                 </div>
             </form>
@@ -54,7 +54,10 @@
         </div>
     </li>
     <li class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent">
+        
+        <img src="{{ task__taskphoto.photo }}" alt=""  class="lead fw-normal mb-0">
         <p class="lead fw-normal mb-0">{{ task.title }}</p>
+        
     </li>
     <li class="list-group-item px-3 py-1 d-flex align-items-center border-0 bg-transparent">
         <div class="py-2 px-3 me-2 border border-warning rounded-3 d-flex align-items-center bg-light">
