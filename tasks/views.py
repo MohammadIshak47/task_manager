@@ -1,9 +1,10 @@
+from django.shortcuts import render,redirect
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from tasks.models import Task
-from tasks.forms import TaskCreateForm,TaskUpdateForm
+from tasks.forms import TaskCreateForm,TaskUpdateForm,NewUserForm
 from django.db.models import Q
-
+from django.contrib.auth import login
 
 class TaskListView(ListView):
     model = Task
@@ -75,6 +76,16 @@ class TaskDeleteView(DeleteView):
     success_url = reverse_lazy('task-list')
 
 
+def signup(request):
+    form = NewUserForm()
+    if request.method == "POST":
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request,user)
+            return redirect('/')
+    
+    return render(request,'registration/signup.html',{'form':form})
 
 
 
