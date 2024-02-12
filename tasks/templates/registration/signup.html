@@ -1,0 +1,46 @@
+{% extends "tasks/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="form-container" style="text-align: center;">
+    <h2>Sign-Up</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+          <label for="username"><i class="fas fa-user"></i></label>
+          {{form.username}}
+      </div>
+      {% if form.username.errors %}
+      <p>{{form.username.errors.as_text}} </p>
+      {% endif %}
+      <br>
+      <div class="form-group">
+          <label for="email"><i class="fas fa-envelope"></i></label>
+        {{form.email}}
+      </div>
+      {% if form.email.errors %}
+      <p>{{form.email.errors.as_text}} </p>
+      {% endif %}
+      <br>
+      <div class="form-group">
+          <label for="password"><i class="fas fa-lock"></i></label>
+          {{form.password1}}
+      </div>
+      {% if form.password.errors %}
+      <p>{{form.password.errors.as_text}} </p>
+      {% endif %}
+      <br>
+      <div class="form-group">
+          <label for="password"><i class="fas fa-lock"></i></label>
+         {{form.password2}}
+      </div>
+     {% if form.password.errors %}
+     <p>{{form.password.errors.as_text}} </p>
+     {% endif %}
+     <br>
+      <button type="submit" class="btn btn-primary register-btn">Sign-Up</button>
+  </form>
+  <p class="login-link">Already have an account? <a href="{% url 'login'  %}">Login</a></p>
+</div>
+</div>
+{% endblock content %}
