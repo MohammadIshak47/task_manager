@@ -10,21 +10,41 @@ class TaskListView(ListView):
     template_name = 'tasks/task_list.html'
     context_object_name = 'tasks'
     ordering = ['-created_at']  # Sort tasks by creation date by default
+    
     def get_queryset(self):
         queryset = super().get_queryset()
-        task_status = self.request.GET.get('task_status')
-        
-        # Filter queryset based on task_status
-        if task_status:
-            queryset = queryset.filter(task_status=task_status)
-            
-        search_query = self.request.GET.get('search')
+
+        # Search by title
+        search_query = self.request.GET.get('search', '')
         if search_query:
-            queryset = queryset.filter(
-                Q(title__icontains=search_query) |
-                Q(description__icontains=search_query)
-            )
-        return queryset 
+            queryset = queryset.filter(title__icontains=search_query)
+
+        # Filter by creation date
+        creation_date_filter = self.request.GET.get('creation_date', '')
+        if creation_date_filter:
+            queryset = queryset.filter(created_at=creation_date_filter)
+
+        # Filter by due date
+        due_date_filter = self.request.GET.get('due_date', '')
+        if due_date_filter:
+            queryset = queryset.filter(due_date=due_date_filter)
+
+        # Filter by priority
+        priority_filter = self.request.GET.get('priority', '')
+        if priority_filter:
+            queryset = queryset.filter(priority=priority_filter)
+
+        # Filter by completion status
+        is_complete_filter = self.request.GET.get('is_complete', '')
+        if is_complete_filter in ['True', 'False']:
+            is_complete_bool = is_complete_filter == 'True'
+            queryset = queryset.filter(is_complete=is_complete_bool)
+
+        return queryset
+   
+        
+        
+        
 
 class TaskCreateView(CreateView):
     model = Task

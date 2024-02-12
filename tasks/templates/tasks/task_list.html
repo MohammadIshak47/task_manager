@@ -1,94 +1,84 @@
 {% extends "tasks/base.html" %}
 {% load static %}
 
-
 {% block content %}
-<!-- Start your project here-->
-
-
+<!-- Start  project here-->
 
 <div class="pb-2">
     <div class="card">
-      <div class="card-body">
-        <form method="GET" class="input-group" action="{% url 'task-list' %}">
-            <div class="input-group">
-              <input type="text" name="search" class="form-control form-control-lg" placeholder="Search..." aria-label="Search">
-              <button type="submit" class="btn btn-primary">Search</button>
-            </div>
-          </form>
-        
-            
-         
-      </div>
+        <div class="card-body">
+            <form method="GET" class="input-group" action="{% url 'task-list' %}">
+                <div class="input-group">
+                    <input type="text" name="search" class="form-control form-control-lg" placeholder="Search by task title.." aria-label="Search" value="{{ request.GET.search }}">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+        </div>
     </div>
     <br>
-   <a href="{% url 'task-create' %}"><button type="submit" class="btn btn-primary">Add Task</button></a> 
-  </div>
+    <a href="{% url 'task-create' %}"><button type="submit" class="btn btn-primary">Add Task</button></a> 
+</div>
 
-              <hr class="my-4">
+<hr class="my-4">
 
-              <div class="d-flex justify-content-end align-items-center mb-4 pt-2 pb-3">
-                <p class="small mb-0 me-2 text-muted">Filter</p>
-                <form method="GET">
-                <select class="select" name="task_status">
-                  <option value="1">All</option>
-                  <option value="2">Completed</option>
-                  <option value="3">Active</option>
-                  <option value="4">Has due date</option>
-                </select>
-            </form>
-                <p class="small mb-0 ms-4 me-2 text-muted">Sort</p>
-                <select class="select">
-                  <option value="1">Added date</option>
-                  <option value="2">Due date</option>
-                </select>
-                <a href="#!" style="color: #23af89;" data-mdb-toggle="tooltip" title="Ascending"><i class="fas fa-sort-amount-down-alt ms-2"></i></a>
-              </div>
+<div class="d-flex justify-content-end align-items-center mb-4 pt-2 pb-3">
+    <p class="small mb-0 me-2 text-muted">Priority</p>
+    <form method="GET">
+        <select class="select" name="priority">
+            <option value="">All</option>
+            <option value="low" {% if request.GET.priority == "low" %} selected {% endif %}>Low</option>
+            <option value="medium" {% if request.GET.priority == "medium" %} selected {% endif %}>Medium</option>
+            <option value="high" {% if request.GET.priority == "high" %} selected {% endif %}>High</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Apply Filter</button>
+    </form>
 
-           {% for task_list in tasks  %}
-              <ul class="list-group list-group-horizontal rounded-0">
-                <li class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent">
-                  <div class="form-check">
-                    <input
-                      class="form-check-input me-0"
-                      type="checkbox"
-                      value=""
-                      id="flexCheckChecked2"
-                      aria-label="..."
-                    />
-                  </div>
-                </li>
-                <li class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent">
-                  <p class="lead fw-normal mb-0">{{task_list.title}}</p>
-                </li>
-                <li class="list-group-item px-3 py-1 d-flex align-items-center border-0 bg-transparent">
-                  <div class="py-2 px-3 me-2 border border-warning rounded-3 d-flex align-items-center bg-light">
-                    <p class="small mb-0">
-                      <a href="{% url 'task-detail' task_list.id %}" data-mdb-toggle="tooltip" title="Due on date">
-                        <i class="fas fa-hourglass-half me-2 text-warning"></i>
-                      </a>
-                      {{task_list.created_date}}
-                    </p>
-                  </div>
-                </li>
-                <li class="list-group-item ps-3 pe-0 py-1 rounded-0 border-0 bg-transparent">
-                  <div class="d-flex flex-row justify-content-end mb-1">
-                    <a href="{% url 'task-detail' task_list.id %}" class="text-info" data-mdb-toggle="tooltip" title="Detail todo"><i class="fas fa-detail-alt me-3">Detail</i></a>
-                    <a href="{% url 'task-update' task_list.id %}" class="text-info" data-mdb-toggle="tooltip" title="Edit todo"><i class="fas fa-pencil-alt me-3"></i></a>
-                    <a href="{% url 'task-delete' task_list.id %}" class="text-danger" data-mdb-toggle="tooltip" title="Delete todo"><i class="fas fa-trash-alt"></i></a>
-                  </div>
-                  <div class="text-end text-muted">
-                    <a href="#!" class="text-muted" data-mdb-toggle="tooltip" title="Created date">
-                      <p class="small mb-0"><i class="fas fa-info-circle me-2"></i> {{task_list.created_date}}</p></a>
-                  </div>
-                </li>
-              </ul>
-    
-              {% endfor %}
-            
-               
+    <p class="small mb-0 ms-4 me-2 text-muted">Completion Status</p>
+    <form method="GET">
+        <select class="select" name="is_complete">
+            <option value="">All</option>
+            <option value="True" {% if request.GET.is_complete == "True" %} selected {% endif %}>Complete</option>
+            <option value="False" {% if request.GET.is_complete == "False" %} selected {% endif %}>Incomplete</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Apply Filter</button>
+    </form>
 
+    <a href="#!" style="color: #23af89;" data-mdb-toggle="tooltip" title="Ascending"><i class="fas fa-sort-amount-down-alt ms-2"></i></a>
+</div>
 
-  
+{% for task in tasks %}
+<ul class="list-group list-group-horizontal rounded-0">
+    <li class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent">
+        <div class="form-check">
+            <input class="form-check-input me-0" type="checkbox" value="" id="flexCheckChecked2" aria-label="...">
+        </div>
+    </li>
+    <li class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent">
+        <p class="lead fw-normal mb-0">{{ task.title }}</p>
+    </li>
+    <li class="list-group-item px-3 py-1 d-flex align-items-center border-0 bg-transparent">
+        <div class="py-2 px-3 me-2 border border-warning rounded-3 d-flex align-items-center bg-light">
+            <p class="small mb-0">
+                <a href="{% url 'task-detail' task.id %}" data-mdb-toggle="tooltip" title="Due on date">
+                    <i class="fas fa-hourglass-half me-2 text-warning"></i>
+                </a>
+                {{ task.due_date }}
+            </p>
+        </div>
+    </li>
+    <li class="list-group-item ps-3 pe-0 py-1 rounded-0 border-0 bg-transparent">
+        <div class="d-flex flex-row justify-content-end mb-1">
+            <a href="{% url 'task-detail' task.id %}" class="text-info" data-mdb-toggle="tooltip" title="Detail todo"><i class="fas fa-detail-alt me-3">Detail</i></a>
+            <a href="{% url 'task-update' task.id %}" class="text-info" data-mdb-toggle="tooltip" title="Edit todo"><i class="fas fa-pencil-alt me-3"></i></a>
+            <a href="{% url 'task-delete' task.id %}" class="text-danger" data-mdb-toggle="tooltip" title="Delete todo"><i class="fas fa-trash-alt"></i></a>
+        </div>
+        <div class="text-end text-muted">
+            <a href="#!" class="text-muted" data-mdb-toggle="tooltip" title="Created date">
+                <p class="small mb-0"><i class="fas fa-info-circle me-2"></i> {{ task.created_date }}</p>
+            </a>
+        </div>
+    </li>
+</ul>
+{% endfor %}
 
 {% endblock content %}
