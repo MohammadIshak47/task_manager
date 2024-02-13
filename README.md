@@ -292,16 +292,28 @@ To deactivate the virtual environment
 - Task deletion with confirmation.
 
 ## Task Manager Apps  API Endpoints Access 
-- To see all data & POST/CREATE Task : Endpoint
- ```bash
-   http://127.0.0.1:8000/api/v1/tasks/5](http://127.0.0.1:8000/api/v1/tasks/
-```
- 
 
-- To See Task Details & Update Task: Endpoint
+- To see All task list : Endpoint
+```bash
+   http://127.0.0.1:8000/api/v1/tasks/
+```
+
+- To see  single task
+
+ ```bash
+   http://127.0.0.1:8000/api/v1/tasks/5
+```
+
+- To See Task Details & Update an Existing Task: Endpoint
 ```bash
    http://127.0.0.1:8000/api/v1/tasks/5
 ```
+
+- To create any task 
+```bash
+   http://127.0.0.1:8000/api/v1/tasks/
+```
+
 - To Delete Task Call this endpoint to update a task with a specific id
 
 ```bash
